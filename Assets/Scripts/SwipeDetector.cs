@@ -6,11 +6,13 @@ public class SwipeDetector : MonoBehaviour
 {
     private Vector2 _touchEndPos;
     private Vector2 _touchStartPos;
-    [SerializeField] private bool detectSwipeOnlyAfterRelease;
+    [SerializeField] private bool _detectSwipeOnlyAfterRelease;
 
     [SerializeField] private float _swipeTolerance;
 
-    void Update()
+    [SerializeField] PlayerMove _playerMove;
+
+    private void Update()
     {
         foreach (Touch touch in Input.touches)
         {
@@ -23,7 +25,7 @@ public class SwipeDetector : MonoBehaviour
             //Detects Swipe while finger is still moving
             if (touch.phase == TouchPhase.Moved)
             {
-                if (!detectSwipeOnlyAfterRelease)
+                if (!_detectSwipeOnlyAfterRelease)
                 {
                     _touchEndPos = touch.position;
                     checkSwipe();
@@ -39,7 +41,7 @@ public class SwipeDetector : MonoBehaviour
         }
     }
 
-    void checkSwipe()
+    private void checkSwipe()
     {
         //Check if Vertical swipe
         if (verticalMove() > _swipeTolerance && verticalMove() > horizontalValMove())
@@ -78,33 +80,33 @@ public class SwipeDetector : MonoBehaviour
         }
     }
 
-    float verticalMove()
+    private float verticalMove()
     {
         return Mathf.Abs(_touchEndPos.y - _touchStartPos.y);
     }
 
-    float horizontalValMove()
+    private float horizontalValMove()
     {
         return Mathf.Abs(_touchEndPos.x - _touchStartPos.x);
     }
 
     //////////////////////////////////CALLBACK FUNCTIONS/////////////////////////////
-    void OnSwipeUp()
+    private void OnSwipeUp()
     {
         Debug.Log("Swipe UP");
     }
 
-    void OnSwipeDown()
+    private void OnSwipeDown()
     {
         Debug.Log("Swipe Down");
     }
 
-    void OnSwipeLeft()
+    public void OnSwipeLeft()
     {
         Debug.Log("Swipe Left");
     }
 
-    void OnSwipeRight()
+    public void OnSwipeRight()
     {
         Debug.Log("Swipe Right");
     }

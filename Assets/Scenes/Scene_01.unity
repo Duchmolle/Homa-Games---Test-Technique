@@ -196,7 +196,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!65 &421163174
 BoxCollider:
@@ -205,7 +205,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 421163173}
-  m_Material: {fileID: 13400000, guid: f577b14a0daa6e94d8dff42a67b43380, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -446,7 +446,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bada2503899e01342834490f2461945b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 5
+  _runningSpeed: 2
+  _strafingSpeed: 0.5
   _mainCam: {fileID: 963194227}
 --- !u!65 &1465363496
 BoxCollider:
@@ -455,7 +456,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1465363494}
-  m_Material: {fileID: 13400000, guid: f577b14a0daa6e94d8dff42a67b43380, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -500,13 +501,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1465363494}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 87e4c888bcf839548b3fa0bf7bebb8b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detectSwipeOnlyAfterRelease: 1
+  _detectSwipeOnlyAfterRelease: 0
   _swipeTolerance: 50
+  _playerMove: {fileID: 1465363495}
 --- !u!1 &1719893771
 GameObject:
   m_ObjectHideFlags: 0
@@ -523,7 +525,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!65 &1719893772
 BoxCollider:
@@ -532,7 +534,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1719893771}
-  m_Material: {fileID: 13400000, guid: f577b14a0daa6e94d8dff42a67b43380, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
