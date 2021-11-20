@@ -7,6 +7,7 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private float _runningSpeed;
     [SerializeField] private float _strafingSpeed;
     [SerializeField] private Camera _mainCam;
+    [SerializeField] private PlayerTriggerManager _playerTriggerManager;
 
     private Touch _touch;
     
@@ -30,7 +31,7 @@ public class PlayerMove : MonoBehaviour
     {
         GetTouch();
 
-        if(_hasBegan)
+        if(_hasBegan && !_playerTriggerManager._haveReachTheEnd)
         {
             transform.Translate(Vector3.forward * _runningSpeed * Time.deltaTime);
             Strafe();

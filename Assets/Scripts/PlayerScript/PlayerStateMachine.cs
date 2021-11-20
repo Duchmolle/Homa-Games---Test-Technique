@@ -5,7 +5,8 @@ using UnityEngine;
 public enum Movement
 {
     IDLE,
-    RUN
+    RUN,
+    SING
 }
 
 public class PlayerStateMachine : MonoBehaviour
@@ -13,6 +14,7 @@ public class PlayerStateMachine : MonoBehaviour
     private Movement _currentState;
 
     [SerializeField] private PlayerAnimatorController _playerAnimatorController;
+    [SerializeField] private PlayerTriggerManager _playerTriggerManager;
     private PlayerMove _playerMove;
 
     private void Awake()
@@ -38,6 +40,10 @@ public class PlayerStateMachine : MonoBehaviour
             case Movement.RUN:
                 DoRunEnter();
                 break;
+
+            case Movement.SING:
+                DoSingEnter();
+                break;
         }
     }
 
@@ -52,6 +58,10 @@ public class PlayerStateMachine : MonoBehaviour
             case Movement.RUN:
                 DoRunExit();
                 break;
+
+            case Movement.SING:
+                DoSingExit();
+                break;
         }
     }
 
@@ -65,6 +75,10 @@ public class PlayerStateMachine : MonoBehaviour
 
             case Movement.RUN:
                 DoRunUpdate();
+                break;
+
+            case Movement.SING:
+                DoSingUpdate();
                 break;
         }
     }
@@ -110,10 +124,32 @@ public class PlayerStateMachine : MonoBehaviour
 
     private void DoRunExit()
     {
-        _playerAnimatorController.ExitIdleAnimation();
+        _playerAnimatorController.ExitRunAnimation();
     }
 
     private void DoRunUpdate()
+    {
+        if(_playerTriggerManager._haveReachTheEnd)
+        {
+            TransitionToState(_currentState, Movement.SING);
+        }
+    }
+
+    #endregion
+
+    #region Sing State
+
+    private void DoSingEnter()
+    {
+        _playerAnimatorController.EnterSingAnimation();
+    }
+
+    private void DoSingExit()
+    {
+        _playerAnimatorController.ExitSingAnimation();
+    }
+
+    private void DoSingUpdate()
     {
     }
 

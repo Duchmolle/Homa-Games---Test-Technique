@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 
-public class MissCollectableTrigger : MonoBehaviour
+public class MissCollectableTrigger : ScoreManager
 {
     [SerializeField] private GameObject _levelMusic;
     [SerializeField] private float _timeBeforeDesactivateChorus;
@@ -17,15 +17,12 @@ public class MissCollectableTrigger : MonoBehaviour
     private float _timer;
     private Color _baseColor;
 
-    public bool _hasMissed;
-
     private void Start()
     {
         _levelMusic.GetComponent<AudioChorusFilter>().enabled = false;
         _noise = _virtualCam1.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
         _noise.m_AmplitudeGain = 0;
         _baseColor = _uICamera.backgroundColor;
-        _hasMissed = false;
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -35,14 +32,8 @@ public class MissCollectableTrigger : MonoBehaviour
             _timer = 0;
             _noise.m_AmplitudeGain = 2;
             _uICamera.backgroundColor = _missColor;
-            _hasMissed = true;
+            _scoreMultiplier--;
         }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Collectable"))
-            _hasMissed = false;
     }
 
     private void Update()
@@ -53,10 +44,6 @@ public class MissCollectableTrigger : MonoBehaviour
         {
             _levelMusic.GetComponent<AudioChorusFilter>().enabled = false;
             _noise.m_AmplitudeGain = 0;
-        }
-
-        if(!_hasMissed)
-        {
             _uICamera.backgroundColor = _baseColor;
         }
     }

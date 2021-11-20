@@ -6,6 +6,7 @@ public class PlayerAnimatorController : MonoBehaviour
 {
     private int _isIdleId = Animator.StringToHash("isIdle");
     private int _isRunningId = Animator.StringToHash("isRunning");
+    private int _isSingingId = Animator.StringToHash("isSinging");
 
     private Animator _playerAnimator;
 
@@ -38,6 +39,20 @@ public class PlayerAnimatorController : MonoBehaviour
     public void ExitRunAnimation()
     {
         _playerAnimator.SetBool(_isRunningId, false);
+    }
+
+    #endregion
+
+    #region Sing Animation
+
+    public void EnterSingAnimation()
+    {
+        _playerAnimator.SetBool(_isSingingId, true);
+    }
+
+    public void ExitSingAnimation()
+    {
+        _playerAnimator.SetBool(_isSingingId, false);
     }
 
     #endregion

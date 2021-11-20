@@ -1561,7 +1561,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1994153101612172360, guid: d5c8f933623cfb34e82e2b911be8baca, type: 3}
       propertyPath: m_Name
-      value: GrabBox
+      value: TriggerEventBox
       objectReference: {fileID: 0}
     - target: {fileID: 2519937955043934713, guid: d5c8f933623cfb34e82e2b911be8baca, type: 3}
       propertyPath: _uICamera

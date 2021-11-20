@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
 {
-    static public int _scoreMultiplier;
-
-    [SerializeField] PlayerCollect _playerCollect;
+    static protected int _scoreMultiplier;
+    static protected int _score;
 
     private void Update()
     {
-        Debug.Log(_scoreMultiplier);
+        Debug.Log(_score);
     }
 }
