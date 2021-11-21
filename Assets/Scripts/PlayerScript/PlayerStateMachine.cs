@@ -6,7 +6,9 @@ public enum Movement
 {
     IDLE,
     RUN,
-    SING
+    SING,
+    BADPRESS,
+    DANCE
 }
 
 public class PlayerStateMachine : MonoBehaviour
@@ -44,6 +46,14 @@ public class PlayerStateMachine : MonoBehaviour
             case Movement.SING:
                 DoSingEnter();
                 break;
+
+            case Movement.BADPRESS:
+                DoBadPressEnter();
+                break;
+
+            case Movement.DANCE:
+                DoDanceEnter();
+                break;
         }
     }
 
@@ -62,6 +72,14 @@ public class PlayerStateMachine : MonoBehaviour
             case Movement.SING:
                 DoSingExit();
                 break;
+
+            case Movement.BADPRESS:
+                DoBadPressExit();
+                break;
+
+            case Movement.DANCE:
+                DoDanceExit();
+                break;
         }
     }
 
@@ -79,6 +97,14 @@ public class PlayerStateMachine : MonoBehaviour
 
             case Movement.SING:
                 DoSingUpdate();
+                break;
+
+            case Movement.BADPRESS:
+                DoBadPressUpdate();
+                break;
+
+            case Movement.DANCE:
+                DoDanceUpdate();
                 break;
         }
     }
@@ -133,6 +159,18 @@ public class PlayerStateMachine : MonoBehaviour
         {
             TransitionToState(_currentState, Movement.SING);
         }
+
+        if(_playerTriggerManager._haveBadPress)
+        {
+            TransitionToState(_currentState, Movement.BADPRESS);
+            _playerTriggerManager._haveBadPress = false;
+        }
+
+        if (_playerTriggerManager._isDancing)
+        {
+            TransitionToState(_currentState, Movement.DANCE);
+            _playerTriggerManager._isDancing = false;
+        }
     }
 
     #endregion
@@ -150,6 +188,47 @@ public class PlayerStateMachine : MonoBehaviour
     }
 
     private void DoSingUpdate()
+    {
+    }
+
+    #endregion
+
+    #region BadPress State
+
+    private void DoBadPressEnter()
+    {
+        _playerAnimatorController.EnterBadPressAnimation();
+    }
+
+    private void DoBadPressExit()
+    {
+        _playerAnimatorController.ExitBadPressAnimation();
+    }
+
+    private void DoBadPressUpdate()
+    {
+        if(_playerTriggerManager._isDancing)
+        {
+            TransitionToState(_currentState, Movement.DANCE);
+            _playerTriggerManager._isDancing = false;
+        }
+    }
+
+    #endregion
+
+    #region Dance State
+
+    private void DoDanceEnter()
+    {
+        _playerAnimatorController.EnterDanceAnimation();
+    }
+
+    private void DoDanceExit()
+    {
+        _playerAnimatorController.ExitDanceAnimation();
+    }
+
+    private void DoDanceUpdate()
     {
     }
 

@@ -7,6 +7,8 @@ public class PlayerAnimatorController : MonoBehaviour
     private int _isIdleId = Animator.StringToHash("isIdle");
     private int _isRunningId = Animator.StringToHash("isRunning");
     private int _isSingingId = Animator.StringToHash("isSinging");
+    private int _haveBadPressId = Animator.StringToHash("haveBadPress");
+    private int _haveDanceId = Animator.StringToHash("isDancing");
 
     private Animator _playerAnimator;
 
@@ -53,6 +55,34 @@ public class PlayerAnimatorController : MonoBehaviour
     public void ExitSingAnimation()
     {
         _playerAnimator.SetBool(_isSingingId, false);
+    }
+
+    #endregion
+
+    #region BadPress Animation
+
+    public void EnterBadPressAnimation()
+    {
+        _playerAnimator.SetTrigger(_haveBadPressId);
+    }
+
+    public void ExitBadPressAnimation()
+    {
+        _playerAnimator.ResetTrigger(_haveBadPressId);
+    }
+
+    #endregion
+
+    #region Dance Animation
+
+    public void EnterDanceAnimation()
+    {
+        _playerAnimator.SetTrigger(_haveDanceId);
+    }
+
+    public void ExitDanceAnimation()
+    {
+        _playerAnimator.ResetTrigger(_haveDanceId);
     }
 
     #endregion

@@ -8,8 +8,16 @@ public class PlayerTriggerManager : ScoreManager
     [SerializeField] Color _validationColor;
     [SerializeField] GameObject _particleEffect;
     [SerializeField] PlaySound _playSound;
+    [SerializeField] public GameObject _bonusSpotLights;
 
     public bool _haveReachTheEnd = false;
+    public bool _haveBadPress = false;
+    public bool _isDancing = false;
+
+    private void Start()
+    {
+        _bonusSpotLights.SetActive(false);
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -23,6 +31,23 @@ public class PlayerTriggerManager : ScoreManager
                 Instantiate(_particleEffect, other.transform, false);
                 _uICamera.backgroundColor = _validationColor;
                 _score += 20;
+                break;
+
+            case "BadPress":
+                _haveBadPress = true;
+                if(_scoreMultiplier >= 2)
+                {
+                    _scoreMultiplier--;
+                }
+                other.GetComponent<AudioSource>().Play();
+                break;
+
+            case "SickMove":
+                _isDancing = true;
+                _scoreMultiplier++;
+                _bonusSpotLights.SetActive(true);
+                other.GetComponent<AudioSource>().Play();
+                StartCoroutine(SpotLightDesactivationCoroutine());
                 break;
 
         }
@@ -39,5 +64,9 @@ public class PlayerTriggerManager : ScoreManager
         }
     }
 
-    
+    IEnumerator SpotLightDesactivationCoroutine()
+    {
+        yield return new WaitForSeconds(4);
+        _bonusSpotLights.SetActive(false);
+    }
 }

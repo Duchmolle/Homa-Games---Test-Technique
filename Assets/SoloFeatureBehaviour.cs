@@ -20,8 +20,6 @@ public class SoloFeatureBehaviour : MonoBehaviour
 
     public void SoloTime()
     {
-        //SpawnSoloElement();
-
         _spawnTimer += Time.deltaTime;
         
 
@@ -41,7 +39,7 @@ public class SoloFeatureBehaviour : MonoBehaviour
                 Touch touch = Input.GetTouch(0);
                 Vector3 touchPosToVector3 = new Vector3(touch.position.x, touch.position.y, 0);
 
-                if (touch.phase == TouchPhase.Moved && (_soloButtonsSpawned[0].transform.position - touchPosToVector3).magnitude < 20)
+                if (touch.phase == TouchPhase.Moved && (_soloButtonsSpawned[0].transform.position - touchPosToVector3).magnitude < 150)
                 {
                     //_destroyTimer = 0;
                     //_objectIsSpawn = false;
@@ -80,36 +78,12 @@ public class SoloFeatureBehaviour : MonoBehaviour
         _soloButtonsSpawned.Add(soloButton);
 
         return soloButton;
-
-        //for (int i = 0; i < 10; i++)
-        //{
-        //    float spawnY = Random.Range(new Vector2(0, 0).y, new Vector2(0, Screen.height).y);
-        //    float spawnX = Random.Range(new Vector2(0, 0).x, new Vector2(Screen.width, 0).x);
-
-        //    Vector2 spawnPosition = new Vector2(spawnX, spawnY);
-
-        //    GameObject soloButton = Instantiate(_soloButtonPrefab, spawnPosition, Quaternion.identity, transform);
-
-        //    _soloButtonsSpawned.Add(soloButton);
-        //}
-
-        //foreach(GameObject button in _soloButtonsSpawned)
-        //{
-        //    _soloButtonAnimator = button.GetComponent<Animator>();
-        //    _soloButtonAnimator.SetBool("isSpawning", true);
-        //}
     }
 
     private void DestroySoloElement(GameObject soloButtonToDestroy)
     {
         Destroy(soloButtonToDestroy);
         _soloButtonsSpawned.Clear();
-    }
-
-    private void Update()
-    {
-        Debug.Log("hauteur : " +Screen.height);
-        Debug.Log("largeur : "+Screen.width);
     }
 
 }
