@@ -24,10 +24,12 @@ public class GameManager : MonoBehaviour
         _vCam2.gameObject.SetActive(false);
         _endGameCanvas.SetActive(false);
         _soloPanel.SetActive(false);
+        _scoreCounterPanel.SetActive(false);
     }
 
     private void Update()
     {
+        //Si le joueur n'a pas encore tapé sur l'écran
         if(!_playerMove._hasBegan)
         {
             _gameStartCanvas.SetActive(true);
@@ -35,7 +37,9 @@ public class GameManager : MonoBehaviour
         else
         {
             _gameStartCanvas.SetActive(false);
+            _scoreCounterPanel.SetActive(true);
         }
+        //Si le joueur est arrivé à la fin du niveau
         if(_playerTriggerManager._haveReachTheEnd)
         {
             _vCam1.gameObject.SetActive(false);
@@ -57,11 +61,5 @@ public class GameManager : MonoBehaviour
         {
             _endGameCanvas.SetActive(true);
         }
-    }
-
-    IEnumerator SoloPanelDesactivationCoroutine()
-    {
-        yield return new WaitForSeconds(5);
-        _soloPanel.SetActive(false);
     }
 }

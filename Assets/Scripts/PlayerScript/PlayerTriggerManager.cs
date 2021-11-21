@@ -8,6 +8,8 @@ public class PlayerTriggerManager : ScoreManager
     [SerializeField] Camera _uICamera;
     [SerializeField] Color _validationColor;
     [SerializeField] GameObject _particleEffect;
+    [SerializeField] GameObject _bonusParticleEffect;
+    [SerializeField] GameObject _malusParticleEffect;
     [SerializeField] PlaySound _playSound;
     [SerializeField] public GameObject _bonusSpotLights;
     [SerializeField] private GameObject _malusArrow;
@@ -40,6 +42,7 @@ public class PlayerTriggerManager : ScoreManager
                 break;
 
             case "BadPress":
+                Instantiate(_malusParticleEffect, other.transform, false);
                 _haveBadPress = true;
                 _bonusText.gameObject.SetActive(true);
                 _bonusText.text = "BAD PRESS !!";
@@ -54,6 +57,7 @@ public class PlayerTriggerManager : ScoreManager
                 break;
 
             case "SickMove":
+                Instantiate(_bonusParticleEffect, other.transform, false);
                 _isDancing = true;
                 _bonusText.gameObject.SetActive(true);
                 _bonusText.text = "SICK DANCE MOVE !!";

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5881012059709154215}
   - component: {fileID: 5881012059709154214}
   m_Layer: 7
-  m_Name: ParticleEffect
+  m_Name: ParticleEffectMalus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4816,8 +4816,8 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 06f05b2d666cdf4459eacfa344edcaa3, type: 2}
-  - {fileID: 2100000, guid: 06f05b2d666cdf4459eacfa344edcaa3, type: 2}
+  - {fileID: 2100000, guid: bcdff818494af524eaa90362c4ebd4da, type: 2}
+  - {fileID: 2100000, guid: bcdff818494af524eaa90362c4ebd4da, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

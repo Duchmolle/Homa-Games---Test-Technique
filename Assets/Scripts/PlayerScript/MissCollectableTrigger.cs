@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 
-public class MissCollectableTrigger : ScoreManager
+public class MissCollectableTrigger : ScoreManager //Déclenche les effets si on rate les notes
 {
     [SerializeField] private GameObject _levelMusic;
     [SerializeField] private float _timeBeforeDesactivateChorus;

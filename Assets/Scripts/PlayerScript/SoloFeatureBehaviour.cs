@@ -23,6 +23,7 @@ public class SoloFeatureBehaviour : MonoBehaviour
 
     public bool _soloEventFinished = false;
 
+    //Methode qui fait spawn et détruit les cibles lors du solo
     public void SoloTime(int numberOfTargetToSpawn)
     {
         if(_numberOfTargetSpawn < numberOfTargetToSpawn)
@@ -49,8 +50,6 @@ public class SoloFeatureBehaviour : MonoBehaviour
 
                     if (touch.phase == TouchPhase.Moved && (_soloButtonsSpawned[0].transform.position - touchPosToVector3).magnitude < 150)
                     {
-                        //_destroyTimer = 0;
-                        //_objectIsSpawn = false;
                         _haveHitTarget = true;
                         _soloButtonsSpawned[0].SetActive(false);
                     }
@@ -80,6 +79,7 @@ public class SoloFeatureBehaviour : MonoBehaviour
         
     }
 
+    //Methode pour spawn une target
     private GameObject SpawnSoloElement()
     {
         float spawnY = Random.Range(new Vector2(0, 0).y, new Vector2(0, Screen.height).y);

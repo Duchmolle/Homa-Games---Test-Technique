@@ -57,8 +57,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1826f17cbe0cfc24494ef8d19f535f8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _scoreMultiplierText: {fileID: 0}
+  _scoreText: {fileID: 0}
+  _finalScoreText: {fileID: 0}
+  _finalMultiplierText: {fileID: 0}
+  _soloFeature: {fileID: 0}
+  _colorList: []
   _uICamera: {fileID: 5975525724812696716, guid: 0c6713fde0f93564896ccc0db5b774cb, type: 3}
   _validationColor: {r: 0.060930513, g: 0.7075472, b: 0, a: 1}
   _particleEffect: {fileID: 5881012059709154212, guid: 6fcdf5b38e0885446bb8253d2b6aa0e4, type: 3}
+  _bonusParticleEffect: {fileID: 5881012059709154212, guid: cb6d8a9463381484db08bc71d7d31424, type: 3}
+  _malusParticleEffect: {fileID: 5881012059709154212, guid: eb9657383a337cd47a74210491f92789, type: 3}
   _playSound: {fileID: 3134023692826657184, guid: c1190609e6651b74d88ae15db4d90dee, type: 3}
+  _bonusSpotLights: {fileID: 0}
+  _malusArrow: {fileID: 0}
+  _bonusText: {fileID: 0}
+  _playerGFXTransform: {fileID: 0}
   _haveReachTheEnd: 0
+  _haveBadPress: 0
+  _isDancing: 0
