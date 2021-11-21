@@ -19,6 +19,7 @@ public class SoloFeatureBehaviour : MonoBehaviour
     public int _numberOfTargetsHit = 0;
     public bool _haveHitTarget = false;
     private int _numberOfTargetSpawn = 0;
+    public bool _firstTargetSwpaning = false;
 
     public bool _soloEventFinished = false;
 
@@ -34,6 +35,7 @@ public class SoloFeatureBehaviour : MonoBehaviour
                 SpawnSoloElement();
                 _spawnTimer = 0;
                 _objectIsSpawn = true;
+                _firstTargetSwpaning = true;
             }
 
             if (_objectIsSpawn)

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerTriggerManager : ScoreManager
 {
@@ -9,6 +10,8 @@ public class PlayerTriggerManager : ScoreManager
     [SerializeField] GameObject _particleEffect;
     [SerializeField] PlaySound _playSound;
     [SerializeField] public GameObject _bonusSpotLights;
+    [SerializeField] private GameObject _malusArrow;
+    [SerializeField] private TMP_Text _bonusText;
 
     public bool _haveReachTheEnd = false;
     public bool _haveBadPress = false;
@@ -17,6 +20,7 @@ public class PlayerTriggerManager : ScoreManager
     private void Start()
     {
         _bonusSpotLights.SetActive(false);
+        _malusArrow.SetActive(false);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -36,19 +40,27 @@ public class PlayerTriggerManager : ScoreManager
 
             case "BadPress":
                 _haveBadPress = true;
+                _bonusText.gameObject.SetActive(true);
+                _bonusText.text = "BAD PRESS !!";
+                _bonusText.color = Color.red;
                 if(_scoreMultiplier >= 2)
                 {
                     _scoreMultiplier--;
                 }
+                _malusArrow.SetActive(true);
                 other.GetComponent<AudioSource>().Play();
+                StartCoroutine(MalusEffectDesactivationCoroutine());
                 break;
 
             case "SickMove":
                 _isDancing = true;
+                _bonusText.gameObject.SetActive(true);
+                _bonusText.text = "SICK DANCE MOVE !!";
+                _bonusText.color = Color.green;
                 _scoreMultiplier++;
                 _bonusSpotLights.SetActive(true);
                 other.GetComponent<AudioSource>().Play();
-                StartCoroutine(SpotLightDesactivationCoroutine());
+                StartCoroutine(BonusEffectDesactivationCoroutine());
                 break;
 
         }
@@ -65,9 +77,19 @@ public class PlayerTriggerManager : ScoreManager
         }
     }
 
-    IEnumerator SpotLightDesactivationCoroutine()
+    IEnumerator BonusEffectDesactivationCoroutine()
     {
         yield return new WaitForSeconds(4);
         _bonusSpotLights.SetActive(false);
+        _bonusText.gameObject.SetActive(false);
+        _isDancing = false;
+    }
+
+    IEnumerator MalusEffectDesactivationCoroutine()
+    {
+        yield return new WaitForSeconds(4);
+        _malusArrow.SetActive(false);
+        _bonusText.gameObject.SetActive(false);
+        _haveBadPress = false;
     }
 }

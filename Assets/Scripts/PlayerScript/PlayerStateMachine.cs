@@ -212,6 +212,14 @@ public class PlayerStateMachine : MonoBehaviour
             TransitionToState(_currentState, Movement.DANCE);
             _playerTriggerManager._isDancing = false;
         }
+        if(_playerTriggerManager._haveReachTheEnd)
+        {
+            TransitionToState(_currentState, Movement.SING);
+        }
+        if(!_playerTriggerManager._haveBadPress)
+        {
+            TransitionToState(_currentState, Movement.RUN);
+        }
     }
 
     #endregion
@@ -230,6 +238,14 @@ public class PlayerStateMachine : MonoBehaviour
 
     private void DoDanceUpdate()
     {
+        if (_playerTriggerManager._haveReachTheEnd)
+        {
+            TransitionToState(_currentState, Movement.SING);
+        }
+        if (!_playerTriggerManager._isDancing)
+        {
+            TransitionToState(_currentState, Movement.RUN);
+        }
     }
 
     #endregion
