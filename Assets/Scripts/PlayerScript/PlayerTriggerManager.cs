@@ -12,6 +12,7 @@ public class PlayerTriggerManager : ScoreManager
     [SerializeField] public GameObject _bonusSpotLights;
     [SerializeField] private GameObject _malusArrow;
     [SerializeField] private TMP_Text _bonusText;
+    [SerializeField] private Transform _playerGFXTransform;
 
     public bool _haveReachTheEnd = false;
     public bool _haveBadPress = false;
@@ -83,6 +84,7 @@ public class PlayerTriggerManager : ScoreManager
         _bonusSpotLights.SetActive(false);
         _bonusText.gameObject.SetActive(false);
         _isDancing = false;
+        _playerGFXTransform.localPosition = Vector3.zero;
     }
 
     IEnumerator MalusEffectDesactivationCoroutine()
@@ -91,5 +93,6 @@ public class PlayerTriggerManager : ScoreManager
         _malusArrow.SetActive(false);
         _bonusText.gameObject.SetActive(false);
         _haveBadPress = false;
+        _playerGFXTransform.localPosition = Vector3.zero;
     }
 }

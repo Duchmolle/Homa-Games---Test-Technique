@@ -20,6 +20,8 @@ public class ScoreManager : MonoBehaviour
     private void Awake()
     {
         _finalScore = 0;
+        _score = 0;
+        _scoreMultiplier = 1;
         _calculTrigger = true;
     }
 
