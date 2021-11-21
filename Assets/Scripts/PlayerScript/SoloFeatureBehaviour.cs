@@ -6,6 +6,7 @@ public class SoloFeatureBehaviour : MonoBehaviour
 {
     private Animator _soloButtonAnimator;
     [SerializeField] GameObject _soloButtonPrefab;
+    [SerializeField] ScoreManager _scoreManager;
     [SerializeField] float _timeBeforeSpawn;
     [SerializeField] float _timeBeforeDestroy;
 
@@ -15,9 +16,11 @@ public class SoloFeatureBehaviour : MonoBehaviour
 
     private bool _objectIsSpawn = false;
 
-    private int _numberOfTargetsHit = 0;
-    private bool _haveHitTarget = false;
+    public int _numberOfTargetsHit = 0;
+    public bool _haveHitTarget = false;
     private int _numberOfTargetSpawn = 0;
+
+    public bool _soloEventFinished = false;
 
     public void SoloTime(int numberOfTargetToSpawn)
     {
@@ -66,6 +69,11 @@ public class SoloFeatureBehaviour : MonoBehaviour
                     _numberOfTargetSpawn++;
                 }
             }
+        }
+
+        if(_numberOfTargetSpawn == numberOfTargetToSpawn)
+        {
+            _soloEventFinished = true;
         }
         
     }
