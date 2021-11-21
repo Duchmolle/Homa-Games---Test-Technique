@@ -26,13 +26,15 @@ public class MissCollectableTrigger : ScoreManager
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Collectable"))
+        switch (other.tag)
         {
-            _levelMusic.GetComponent<AudioChorusFilter>().enabled = true;
-            _timer = 0;
-            _noise.m_AmplitudeGain = 2;
-            _uICamera.backgroundColor = _missColor;
-            _scoreMultiplier--;
+            case "MusicNote":
+                _levelMusic.GetComponent<AudioChorusFilter>().enabled = true;
+                _timer = 0;
+                _noise.m_AmplitudeGain = 2;
+                _uICamera.backgroundColor = _missColor;
+                break;
+
         }
     }
 

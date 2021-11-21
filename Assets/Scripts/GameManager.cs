@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] PlayerTriggerManager _playerTriggerManager;
     [SerializeField] CinemachineVirtualCamera _vCam1;
     [SerializeField] CinemachineVirtualCamera _vCam2;
+    [SerializeField] SoloFeatureBehaviour _soloFeature;
 
     private void Start()
     {
@@ -21,6 +22,7 @@ public class GameManager : MonoBehaviour
         {
             _vCam1.gameObject.SetActive(false);
             _vCam2.gameObject.SetActive(true);
+            _soloFeature.SoloTime();
         }
     }
 }

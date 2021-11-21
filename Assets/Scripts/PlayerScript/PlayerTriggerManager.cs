@@ -9,7 +9,7 @@ public class PlayerTriggerManager : ScoreManager
     [SerializeField] GameObject _particleEffect;
     [SerializeField] PlaySound _playSound;
 
-    public bool _haveReachTheEnd;
+    public bool _haveReachTheEnd = false;
 
     private void OnTriggerEnter(Collider other)
     {

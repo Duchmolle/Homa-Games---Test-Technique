@@ -41,14 +41,14 @@ public class PlaySound : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (_comboTime >= _timer && _isCombo)
-        {
-            _increment++;
-        }
         if (other.CompareTag("Player"))
         {
             _isCombo = true;
 
+            if (_comboTime >= _timer && _isCombo)
+            {
+                _increment++;
+            }
             if (!_audioSource.isPlaying)
             {
                 _audioSource.PlayOneShot(_audioSource.clip); 
@@ -59,9 +59,8 @@ public class PlaySound : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(_isCombo);
-        Debug.Log(_increment);
-        Debug.Log(_timer);
+        //Debug.Log(_isCombo);
+        //Debug.Log(_increment);
         if(_isCombo)
         {
             SwitchAudioClip();
