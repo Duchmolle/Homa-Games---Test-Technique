@@ -17,50 +17,57 @@ public class SoloFeatureBehaviour : MonoBehaviour
 
     private int _numberOfTargetsHit = 0;
     private bool _haveHitTarget = false;
+    private int _numberOfTargetSpawn = 0;
 
-    public void SoloTime()
+    public void SoloTime(int numberOfTargetToSpawn)
     {
-        _spawnTimer += Time.deltaTime;
+        if(_numberOfTargetSpawn < numberOfTargetToSpawn)
+        {
+            _spawnTimer += Time.deltaTime;
+
+
+            if (_spawnTimer >= _timeBeforeSpawn)
+            {
+                SpawnSoloElement();
+                _spawnTimer = 0;
+                _objectIsSpawn = true;
+            }
+
+            if (_objectIsSpawn)
+            {
+                _destroyTimer += Time.deltaTime;
+
+                if (Input.touchCount > 0)
+                {
+                    Touch touch = Input.GetTouch(0);
+                    Vector3 touchPosToVector3 = new Vector3(touch.position.x, touch.position.y, 0);
+
+                    if (touch.phase == TouchPhase.Moved && (_soloButtonsSpawned[0].transform.position - touchPosToVector3).magnitude < 150)
+                    {
+                        //_destroyTimer = 0;
+                        //_objectIsSpawn = false;
+                        _haveHitTarget = true;
+                        _soloButtonsSpawned[0].SetActive(false);
+                    }
+                }
+
+                if (_destroyTimer >= _timeBeforeDestroy)
+                {
+                    if (_haveHitTarget)
+                    {
+                        _numberOfTargetsHit++;
+                    }
+
+                    DestroySoloElement(_soloButtonsSpawned[0]);
+                    _destroyTimer = 0;
+                    _objectIsSpawn = false;
+                    _haveHitTarget = false;
+
+                    _numberOfTargetSpawn++;
+                }
+            }
+        }
         
-
-        if(_spawnTimer >= _timeBeforeSpawn)
-        {
-            SpawnSoloElement();
-            _spawnTimer = 0;
-            _objectIsSpawn = true;
-        }
-
-        if(_objectIsSpawn)
-        {
-            _destroyTimer += Time.deltaTime;
-
-            if(Input.touchCount > 0)
-            {
-                Touch touch = Input.GetTouch(0);
-                Vector3 touchPosToVector3 = new Vector3(touch.position.x, touch.position.y, 0);
-
-                if (touch.phase == TouchPhase.Moved && (_soloButtonsSpawned[0].transform.position - touchPosToVector3).magnitude < 150)
-                {
-                    //_destroyTimer = 0;
-                    //_objectIsSpawn = false;
-                    _haveHitTarget = true;
-                    _soloButtonsSpawned[0].SetActive(false);
-                }
-            }
-
-            if (_destroyTimer >= _timeBeforeDestroy)
-            {
-                if (_haveHitTarget)
-                {
-                    _numberOfTargetsHit++;
-                }
-
-                DestroySoloElement(_soloButtonsSpawned[0]);
-                _destroyTimer = 0;
-                _objectIsSpawn = false;
-                _haveHitTarget = false;
-            }
-        }
     }
 
     private GameObject SpawnSoloElement()

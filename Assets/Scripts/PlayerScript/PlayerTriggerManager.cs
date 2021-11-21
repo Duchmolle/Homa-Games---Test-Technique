@@ -25,6 +25,7 @@ public class PlayerTriggerManager : ScoreManager
         {
             case "EndZone":
                 _haveReachTheEnd = true;
+                _uICamera.gameObject.SetActive(false);
                 break;
 
             case "MusicNote":

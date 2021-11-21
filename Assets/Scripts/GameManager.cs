@@ -9,6 +9,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] CinemachineVirtualCamera _vCam1;
     [SerializeField] CinemachineVirtualCamera _vCam2;
     [SerializeField] SoloFeatureBehaviour _soloFeature;
+    [SerializeField] int _numberOfTargetToSpawn;
+    [SerializeField] GameObject _pauseMenu;
+
 
     private void Start()
     {
@@ -22,7 +25,18 @@ public class GameManager : MonoBehaviour
         {
             _vCam1.gameObject.SetActive(false);
             _vCam2.gameObject.SetActive(true);
-            _soloFeature.SoloTime();
+            _soloFeature.SoloTime(_numberOfTargetToSpawn);
         }
+    }
+
+    public void PauseMenu()
+    {
+        _pauseMenu.SetActive(true);
+        Time.timeScale = 0;
+    }
+
+    public void ExitPauseMenu()
+    {
+
     }
 }
