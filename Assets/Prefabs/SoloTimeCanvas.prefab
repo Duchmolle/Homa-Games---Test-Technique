@@ -112,5 +112,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c5e7505324e88b48b971457b4612e2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _soloButtonAnimator: {fileID: 1578006053246605698, guid: 9f2f706542c751247ad14be3927b7c65, type: 3}
   _soloButtonPrefab: {fileID: 1578006053246605696, guid: 9f2f706542c751247ad14be3927b7c65, type: 3}
+  _scoreManager: {fileID: 0}
+  _timeBeforeSpawn: 0
+  _timeBeforeDestroy: 0
+  _targetparticle: {fileID: 5881012059709154212, guid: cb6d8a9463381484db08bc71d7d31424, type: 3}
+  _numberOfTargetsHit: 0
+  _haveHitTarget: 0
+  _firstTargetSwpaning: 0
+  _soloEventFinished: 0

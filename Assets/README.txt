@@ -21,3 +21,15 @@ I chose to move the character through the transform because I don't use physics 
 the character movement had to be more reactive than realistic. 
 I also chose to put a sort of "mini map" at the top of the UI to recall a score or guitar strings, 
 as if we were walking on it. The symbols on the black bars are there as a nod to Rhythm Games genre.
+
+Asset use :
+- Polygon Prototype - Synty Studios
+- Polygon City - Synty Studios
+- GUI PRO Kit - Layer Lab
+
+Animation :
+-Mixamo
+
+Music :
+- (FREE) Funk Pop Disco Guitar Type Beat "Boogie” | Prod. BigBadBeats - BigBadBeats
+- (FREE) Disco Funk Type Beat "Fever" - BigBadBeats

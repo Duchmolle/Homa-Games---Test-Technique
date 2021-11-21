@@ -45,8 +45,9 @@ public class GameManager : MonoBehaviour
             _vCam1.gameObject.SetActive(false);
             _vCam2.gameObject.SetActive(true);
             _soloFeature.SoloTime(_numberOfTargetToSpawn);
+            _scoreCounterPanel.SetActive(false);
 
-            if(!_soloFeature._firstTargetSwpaning)
+            if (!_soloFeature._firstTargetSwpaning)
             {
                 _soloPanel.SetActive(true);
             }
