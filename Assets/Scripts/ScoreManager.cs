@@ -9,6 +9,6 @@ public class ScoreManager : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(_score);
+        //Debug.Log(_score);
     }
 }

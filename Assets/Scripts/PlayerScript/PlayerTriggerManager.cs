@@ -7,6 +7,7 @@ public class PlayerTriggerManager : ScoreManager
     [SerializeField] Camera _uICamera;
     [SerializeField] Color _validationColor;
     [SerializeField] GameObject _particleEffect;
+    [SerializeField] PlaySound _playSound;
 
     public bool _haveReachTheEnd;
 
@@ -15,7 +16,6 @@ public class PlayerTriggerManager : ScoreManager
         switch(other.tag)
         {
             case "EndZone":
-                Debug.Log("Dans le switch");
                 _haveReachTheEnd = true;
                 break;
 
@@ -38,4 +38,6 @@ public class PlayerTriggerManager : ScoreManager
 
         }
     }
+
+    
 }

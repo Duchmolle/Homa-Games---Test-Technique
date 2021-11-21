@@ -82,6 +82,7 @@ MonoBehaviour:
   _runningSpeed: 5
   _strafingSpeed: 0.5
   _mainCam: {fileID: 5638109807982659943, guid: 8e517cd109397a04690012c719f8a465, type: 3}
+  _playerTriggerManager: {fileID: 0}
   _hasBegan: 0
 --- !u!114 &4727654307909134243
 MonoBehaviour:
@@ -111,6 +112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerAnimatorController: {fileID: 4727654307473498537}
+  _playerTriggerManager: {fileID: 0}
 --- !u!114 &4727654307473498537
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1562,6 +1564,10 @@ PrefabInstance:
     - target: {fileID: 1994153101612172360, guid: d5c8f933623cfb34e82e2b911be8baca, type: 3}
       propertyPath: m_Name
       value: TriggerEventBox
+      objectReference: {fileID: 0}
+    - target: {fileID: 1994153101612172360, guid: d5c8f933623cfb34e82e2b911be8baca, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 2519937955043934713, guid: d5c8f933623cfb34e82e2b911be8baca, type: 3}
       propertyPath: _uICamera

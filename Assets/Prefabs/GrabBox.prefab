@@ -59,6 +59,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _uICamera: {fileID: 5975525724812696716, guid: 0c6713fde0f93564896ccc0db5b774cb, type: 3}
   _validationColor: {r: 0.060930513, g: 0.7075472, b: 0, a: 1}
-  _scoreManager: {fileID: 6617236818296568751, guid: d6b2048fa3fb25c41aca036f416bc48c, type: 3}
   _particleEffect: {fileID: 5881012059709154212, guid: 6fcdf5b38e0885446bb8253d2b6aa0e4, type: 3}
-  _missTrigger: {fileID: 5586470622675032523, guid: 8fd4ceaadebcdf44f8e448d8e0c12f8b, type: 3}
+  _playSound: {fileID: 3134023692826657184, guid: c1190609e6651b74d88ae15db4d90dee, type: 3}
+  _haveReachTheEnd: 0
