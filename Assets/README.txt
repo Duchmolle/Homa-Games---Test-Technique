@@ -5,6 +5,8 @@ Be careful, however, the world of music is not easy, beware of scandals!
 
 Put your talents as a singer / songwriter to good use!
 
+Phone used for developpement Huwawei P Smart 2019
+
 Scoring explanation:
 - Pick up a music note = +20 points
 - Pick up a spotlight = +1 to score multiplier
