@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000000, guid: fdb637e2deac49541aaf88b77c4eeace, type: 2}
+  m_LightingDataAsset: {fileID: 0}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -2207,8 +2207,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 379063083}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -4.98, z: -46.1}
-  m_LocalScale: {x: 13.29, y: 1, z: 0.35}
+  m_LocalPosition: {x: -0.1853, y: -0.7, z: -46.1}
+  m_LocalScale: {x: 14.074, y: 1, z: 0.35}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 11
@@ -13331,7 +13331,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4057418866648408372, guid: 5a1dbe522c52134409d043d6ca03fe0a, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4057418866739356452, guid: 5a1dbe522c52134409d043d6ca03fe0a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -13618,7 +13618,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5975525724812696714, guid: 0c6713fde0f93564896ccc0db5b774cb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -25.71
+      value: -38.9
       objectReference: {fileID: 0}
     - target: {fileID: 5975525724812696714, guid: 0c6713fde0f93564896ccc0db5b774cb, type: 3}
       propertyPath: m_LocalRotation.w
