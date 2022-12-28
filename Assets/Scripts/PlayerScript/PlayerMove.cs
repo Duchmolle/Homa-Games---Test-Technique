@@ -19,7 +19,7 @@ public class PlayerMove : MonoBehaviour
 
     private void Update()
     {
-        GetTouch();
+        GetFirstTouch();
 
         if(_hasBegan && !_playerTriggerManager._haveReachTheEnd)
         {
@@ -27,8 +27,22 @@ public class PlayerMove : MonoBehaviour
             Strafe();
         }
     }
+    private void Strafe()
+    {
+        if (Input.touchCount > 0)
+        {
+            _touch = Input.GetTouch(0);
 
-    private void GetTouch()
+            if (_touch.phase == TouchPhase.Moved)
+            {
+                transform.position = new Vector3(Mathf.Clamp(transform.position.x +
+                    _touch.deltaPosition.x * _strafingSpeed * Time.deltaTime, -6, 6),
+                    transform.position.y, transform.position.z);
+            }
+        }
+    }
+
+    private void GetFirstTouch()
     {
         if (Input.touchCount > 0)
         {
@@ -41,19 +55,5 @@ public class PlayerMove : MonoBehaviour
         }
 
 
-    }
-
-    private void Strafe()
-    {
-        if (Input.touchCount > 0)
-        {
-            _touch = Input.GetTouch(0);
-
-            if(_touch.phase == TouchPhase.Moved)
-            {
-                transform.position = new Vector3(Mathf.Clamp(transform.position.x + _touch.deltaPosition.x * _strafingSpeed * Time.deltaTime, -6, 6), 
-                    transform.position.y, transform.position.z);
-            }
-        }
     }
 }
